@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>MOKEPON</title>
+    <link rel="stylesheet" href="./css/mokeponStyle.css">
+</head>
+<body>
+    <section id="seleccionar-mascota">
+        <h2>Elige tu mascota</h2>
+
+        <div class="opciones-mascotas">
+            <label for="hipodoge">
+                <input type="radio" name="mascota" id="hipodoge">
+                <img src="./images/hipoN.png" alt="Hipodoge">
+                <p>Hipodoge</p>
+            </label>
+
+            <label for="capipepo">
+                <input type="radio" name="mascota" id="capipepo">
+                <img src="./images/capipepoN.png" alt="Capipepo">
+                <p>Capipepo</p>
+            </label>
+
+            <label for="ratigueya">
+                <input type="radio" name="mascota" id="ratigueya">
+                <img src="./images/ratigueyaN.png" alt="Ratigueya">
+                <p>Ratigueya</p>
+            </label>
+        </div>
+
+        <button id="boton-mascota">Seleccionar</button>
+    </section>
+
+    <section id="seleccionar-ataque">
+        <h2>Elige tu ataque</h2>
+        
+        <div class="mascotas-combate">
+            <div class="mascota-jugador">
+                <p id="nombre-mascota-jugador"></p>
+                <img id="imagen-mascota-jugador" src="" alt="Tu mascota">
+            </div>
+            
+            <div class="mascota-enemigo">
+                <p id="nombre-mascota-enemigo"></p>
+                <img id="imagen-mascota-enemigo" src="" alt="Mascota enemiga">
+            </div>
+        </div>
+
+        <div id="vidas">
+            <p>Tus vidas: <span id="vidas-jugador">3</span></p>
+            <p>Vidas enemigo: <span id="vidas-enemigo">3</span></p>
+        </div>
+
+        <div class="ataques">
+            <button id="boton-fuego">Fuego 🔥</button>
+            <button id="boton-agua">Agua 💧</button>
+            <button id="boton-tierra">Tierra 🌍</button>
+        </div>
+    </section>
+
+    <section id="mensajes">
+        <p>Selecciona tu mascota y comienza el juego!</p>
+    </section>
+
+    <section id="reiniciar">
+        <div id="resultado-final"></div>
+        <div class="botones-reinicio">
+            <button id="boton-si" class="boton-si">Sí, jugar de nuevo</button>
+            <button id="boton-no" class="boton-no">No, salir</button>
+        </div>
+    </section>
+
+    <footer>
+        Tecnm Campus Pachuca - Programación Web - T2 - Yesica Guadalupe Gutierrez Zarate - 2025
+    </footer>
+
+    <script src="./js/jsMokepon.js"></script>
+</body>
+</html>

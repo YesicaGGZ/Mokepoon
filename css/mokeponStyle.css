@@ -1,0 +1,503 @@
+/* Estilos base - fondo con puntos rosas y tipografía divertida */
+body {
+    font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #ffebf3;
+    background-image: radial-gradient(circle, #ffcce6 10%, transparent 10%), 
+                      radial-gradient(circle, #ffcce6 10%, transparent 10%);
+    background-size: 50px 50px;
+    background-position: 0 0, 25px 25px;
+    color: #5a2d82;
+    min-height: 100vh;
+}
+
+/* Cada sección tiene bordes naranjas y sombra */
+section {
+    margin-bottom: 25px;
+    padding: 25px;
+    border: 3px solid #ff9f1c;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Borde animado que gira alrededor */
+section::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px dashed #ff6b6b;
+    border-radius: 25px;
+    animation: rotateBorder 20s linear infinite;
+    pointer-events: none;
+}
+
+/* Títulos con efecto 3D */
+h2 {
+    color: #ff6b6b;
+    margin-bottom: 20px;
+    font-size: 2em;
+    text-shadow: 2px 2px 0px #fff, 4px 4px 0px rgba(255,107,107,0.3);
+    letter-spacing: 1px;
+}
+
+/* Tarjetas para seleccionar mascotas */
+.opciones-mascotas {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+/* Estilo de cada tarjeta de mascota */
+.opciones-mascotas label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    width: 150px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto al pasar el mouse sobre mascotas */
+.opciones-mascotas label:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 20px rgba(0,0,0,0.2);
+    background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+}
+
+/* Efecto de brillo en las tarjetas */
+.opciones-mascotas label::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.5) 50%, transparent 55%);
+    background-size: 200% 200%;
+    animation: shine 2s infinite;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Efecto hover en las imágenes */
+.opciones-mascotas label:hover::after {
+    opacity: 1;
+}
+
+/* Imágenes de las mascotas */
+.opciones-mascotas img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 5px 5px rgba(0,0,0,0.2));
+}
+
+/* Efecto al seleccionar mascota */
+.opciones-mascotas label:hover img {
+    transform: scale(1.1) rotate(5deg);
+    filter: drop-shadow(0 10px 10px rgba(0,0,0,0.3));
+}
+
+/* Nombre de las mascotas */
+.opciones-mascotas p {
+    font-weight: bold;
+    font-size: 1.3em;
+    color: #5a2d82;
+    margin: 0;
+    text-shadow: 1px 1px 0 #fff;
+}
+
+/* Sección de combate - fondo azul */
+#seleccionar-ataque {
+    background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+    border: 4px solid #5a2d82;
+}
+
+/* Contenedor de mascotas en combate */
+.mascotas-combate {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 30px 0;
+    position: relative;
+}
+
+/* Estilo de cada mascota en combate */
+.mascota-jugador, .mascota-enemigo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: rgba(255,255,255,0.7);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Imágenes en el combate */
+.mascotas-combate img {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 10px rgba(0,0,0,0.3));
+    transition: all 0.3s ease;
+}
+
+/* Texto en el combate */
+.mascotas-combate p {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #ff6b6b;
+    text-shadow: 2px 2px 0 #fff;
+    background-color: rgba(255,255,255,0.7);
+    padding: 5px 15px;
+    border-radius: 20px;
+    border: 2px solid #ff9f1c;
+}
+
+/* Botones de ataque */
+.ataques {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+/* Estilo base de botones */
+button {
+    padding: 15px 30px;
+    margin: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Efecto hover en botones */
+button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 20px rgba(0,0,0,0.3);
+}
+
+/* Efecto al hacer click */
+button:active {
+    transform: translateY(0) scale(0.95);
+}
+
+/* Efecto de brillo en botones */
+button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.7) 50%, transparent 55%);
+    background-size: 200% 200%;
+    animation: shine 1.5s infinite;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Botón para seleccionar mascota */
+#boton-mascota {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    color: white;
+    font-size: 1.3em;
+    padding: 15px 40px;
+}
+
+/* Botón de ataque fuego */
+#boton-fuego {
+    background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+    color: white;
+}
+
+/* Botón de ataque agua */
+#boton-agua {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+}
+
+/* Botón de ataque tierra */
+#boton-tierra {
+    background: linear-gradient(135deg, #a8e063 0%, #56ab2f 100%);
+    color: white;
+}
+
+/* Contadores de vida */
+#vidas {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 25px 0;
+    font-size: 1.3em;
+}
+
+/* Estilo de los contadores */
+#vidas p {
+    margin: 0;
+    padding: 10px 25px;
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    border-radius: 50px;
+    border: 3px solid #fff;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    font-weight: bold;
+    color: #5a2d82;
+}
+
+/* Área de mensajes del juego */
+#mensajes {
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3em;
+    padding: 20px;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 15px;
+    border: 2px dashed #ff9f1c;
+    margin: 20px 0;
+}
+
+/* Estilo cuando ganas */
+.ganaste {
+    color: #2ecc71;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #fff;
+    animation: celebration 1s ease infinite;
+}
+
+/* Estilo cuando pierdes */
+.perdiste {
+    color: #e74c3c;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #fff;
+    animation: shake 0.5s ease infinite;
+}
+
+/* Estilo cuando empatas */
+.empate {
+    color: #f39c12;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #fff;
+    animation: pulse 1s ease infinite;
+}
+
+/* Sección de reinicio */
+#reiniciar {
+    display: none;
+    background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+    border-radius: 20px;
+    padding: 30px;
+    margin-top: 30px;
+    border: 4px solid #5a2d82;
+}
+
+/* Título de resultados */
+#resultado-final h2 {
+    color: #ff6b6b;
+    margin-bottom: 20px;
+    font-size: 2em;
+    text-shadow: 2px 2px 0 #fff;
+}
+
+/* Subtítulo de resultados */
+#resultado-final h3 {
+    color: #5a2d82;
+    margin: 20px 0 15px;
+    font-size: 1.5em;
+}
+
+/* Resumen del juego */
+.resumen-juego {
+    background-color: rgba(255,255,255,0.8);
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px 0;
+    border: 3px solid #ff9f1c;
+}
+
+/* Texto del resumen */
+.resumen-juego p {
+    margin: 12px 0;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #5a2d82;
+}
+
+/* Botones de reinicio */
+.botones-reinicio {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+/* Botón Sí */
+.boton-si {
+    background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+    color: white;
+    font-size: 1.2em;
+    padding: 15px 35px;
+}
+
+/* Botón No */
+.boton-no {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: white;
+    font-size: 1.2em;
+    padding: 15px 35px;
+}
+
+/* Pie de página */
+footer {
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #5a2d82;
+    padding: 15px;
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 15px;
+    border: 2px solid #ff9f1c;
+}
+
+/* Animación de ataque */
+@keyframes ataque {
+    0% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-30px) rotate(5deg); }
+    50% { transform: translateY(0) rotate(-5deg); }
+    75% { transform: translateY(-15px) rotate(5deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* Animación de daño */
+@keyframes dano {
+    0% { transform: translateX(0); opacity: 1; }
+    25% { transform: translateX(-15px); opacity: 0.7; }
+    50% { transform: translateX(15px); opacity: 0.7; }
+    75% { transform: translateX(-15px); opacity: 0.7; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+/* Animación de brillo */
+@keyframes shine {
+    0% { background-position: -100% -100%; }
+    100% { background-position: 200% 200%; }
+}
+
+/* Animación de borde giratorio */
+@keyframes rotateBorder {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Animación de celebración */
+@keyframes celebration {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Animación de sacudida */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Animación de pulso */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* Efecto de confeti */
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #f00;
+    border-radius: 50%;
+    animation: confetti-fall 5s linear forwards;
+}
+
+/* Animación de confeti cayendo */
+@keyframes confetti-fall {
+    0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+/* Diseño para móviles */
+@media (max-width: 768px) {
+    .opciones-mascotas {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .mascotas-combate {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .ataques {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #vidas {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+/* Confeti (versión fixed) */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    animation: confetti-fall 5s linear forwards;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+/* Animación de confeti (versión fixed) */
+@keyframes confetti-fall {
+    0% { 
+        transform: translateY(-100vh) rotate(0deg); 
+        opacity: 1; 
+    }
+    100% { 
+        transform: translateY(100vh) rotate(360deg); 
+        opacity: 0; 
+    }
+}
